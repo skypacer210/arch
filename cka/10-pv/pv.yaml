@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: app-config
+spec:
+  storageClassName: app-config
+  capacity:
+    storage: 1Gi  #按照题目要求的大小写
+  accessModes:
+    - ReadWriteMany   # 注意，考试时的访问模式可能有 ReadWriteMany 和 ReadOnlyMany 和 ReadWriteOnce，根据题目要求写
+  hostPath:
+    path: "/srv/app-config"   # 注意有引号

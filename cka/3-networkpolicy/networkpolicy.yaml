@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-port-from-namespace
+  namespace: my-app
+spec:
+  podSelector: {} # 策略作用对象
+  policyTypes:
+   - Ingress
+  ingress:
+    - from: # 入方向允许流量策略
+      - namespaceSelector:
+          matchLabels:
+            project: echo   # 通过标签找访问者，这里是echo -> my-app
+      ports:
+        - protocol: TCP
+          port: 9000    # 被访问者（策略作用对象）公开的端口

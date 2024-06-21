@@ -1,0 +1,22 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  # 修改名字
+  name: ping
+  # 增加namespace
+  namespace: ing-internal
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  # 修改ingressClass为上一步查到的ingressClass名字
+  ingressClassName: nginx
+  rules:
+  - http:
+      paths:
+      - path: /hello    # 修改path
+        pathType: Prefix
+        backend:
+          service:
+            name: hello   # 修改后端service名称
+            port:
+              number: 5678  # 修改Port

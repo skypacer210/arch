@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: web-server
+  name: web-server
+spec:
+  containers:
+  - image: nginx:1.16
+    name: web-server
+    # 增加挂载点
+    volumeMounts:
+      - mountPath: "/usr/share/nginx/html"
+        name: task-pv-storage   # 挂载点和存储命名保持一致
+    resources: {}
+  # 增加存储，与containers同级
+  volumes:
+    - name: task-pv-storage
+      # 引用PVC
+      persistentVolumeClaim:
+        # PVC标识符: claimName
+        claimName: pv-volume
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}

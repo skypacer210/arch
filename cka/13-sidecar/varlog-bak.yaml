@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: 11-factor-app
+spec:
+  containers:
+  - args:
+    - /bin/sh
+    - -c
+    - |
+      i=0; while true; do
+        echo "$(date) INFO $i" >> /var/log/11-factor-app.log;
+        i=$((i+1));
+        sleep 1;
+      done
+    name: count
+    image: busybox:1.35
+    imagePullPolicy: IfNotPresent
+    volumeMounts:
+    - name: auditlog
+      mountPath: /var/log
+  volumes:
+  - name: auditlog
+    emptyDir: {}
