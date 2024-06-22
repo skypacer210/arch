@@ -16,7 +16,11 @@
 
 扩容 deployment 副本数量，记住命令！
 
-#### 1. 查询当前部署的副本数：
+#### 1. 切换集群
+
+    kubectl config use-context k8s
+
+#### 2. 查询当前部署的副本数：
 
 ```
 ubuntu@kubeworker01:/Users/yangyong/arch/cka/2-replicas$ k get deployments
@@ -25,7 +29,7 @@ front-end      3/3     3            3           8d
 presentation   1/1     1            1           2m21s
 ```
 
-#### 2. 执行扩容
+#### 3. 执行扩容
 
 ```
 ubuntu@kubeworker01:/Users/yangyong/arch/cka/2-replicas$ k scale deployment presentation --replicas=4

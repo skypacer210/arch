@@ -22,6 +22,12 @@ Task
 
 考点：logs命令
 
+#### 1. 切换集群
+
+    kubectl config use-context k8s
+
+#### 2. Log
+
     kubectl logs foo | grep "RLIMIT_NOFILE" > /opt/KUTR00101/foo
 
 ### 验证

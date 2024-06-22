@@ -19,19 +19,17 @@ Task
 
 ### 答题
 
-查看 pod 名称 -A 是所有 namespace 的意思
+#### 1. 切换集群
+
+    kubectl config use-context k8s
+
+#### 2. 查看 pod 名称 -A 是所有 namespace 的意思
 
     kubectl top pod -l name=cpu-loader --sort-by=cpu -A
 
-将 cpu 占用最多的 pod 的 name 写入/opt/test1.txt 文件
+#### 3. 将 cpu 占用最多的 pod 的 name 写入/opt/test1.txt 文件
 
-echo "查出来的 Pod Name" > /opt/KUTR000401/KUTR00401.txt
-
-TODO：环境有错误！！！
-
-```
-code
-```
+    echo "查出来的 Pod Name" > /opt/KUTR000401/KUTR00401.txt
 
 ### 验证
 

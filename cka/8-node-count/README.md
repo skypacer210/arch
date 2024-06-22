@@ -21,7 +21,11 @@ Task
 
 题目要求，不包括被打上 Taint：NoSchedule 的就绪节点，所以要排除 NoSchedule 的。
 
-#### 法1. 过滤出Taints为NoSchedule的Node, 这里是第一行，总共3个，那么符合题目要求的节点就是3-1=2
+#### 1. 切换集群
+
+    kubectl config use-context k8s
+
+#### 2(法1). 过滤出Taints为NoSchedule的Node, 这里是第一行，总共3个，那么符合题目要求的节点就是3-1=2
 
 ```
 ubuntu@kubeworker01:/Users/yangyong/arch/cka/8-node-count$ kubectl describe nodes | grep -i Taints
@@ -30,13 +34,13 @@ Taints:             <none>
 Taints:             <none>
 ```
 
-#### 法2: 一步到位，直接查
+#### 2(法2): 一步到位，直接查
 
 基于grep的 -vc，即排除匹配之外的
 
     kubectl describe nodes | grep -i Taints | grep -vc NoSchedule
 
-#### 写入文件
+#### 3. 写入文件
 
     echo "查出来的数字" > /opt/KUSC00402/kusc00402.txt
 

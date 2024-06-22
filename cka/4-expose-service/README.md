@@ -24,7 +24,11 @@ Task
 
 参考链接：https://kubernetes.io/zh-cn/docs/concepts/workloads/controllers/deployment/
 
-#### 1. 编辑deploy，增加ports部分：
+#### 1. 切换集群
+
+    kubectl config use-context k8s
+
+#### 2. 编辑deploy，增加ports部分：
 
 ```
 ubuntu@kubeworker01:/Users/yangyong/arch/cka/4-expose-service$ k edit deploy front-end
@@ -35,7 +39,7 @@ deployment.apps/front-end edited
 
 ![](4-1.png)
 
-#### 2. 暴露对应端口
+#### 3. 暴露对应端口
 
 注意考试中需要创建的是 NodePort，还是 ClusterIP。如果是 ClusterIP，则应为--type=ClusterIP
 --port 是 service 的端口号，--target-port 是 deployment 里 pod 的容器的端口号。

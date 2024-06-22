@@ -27,17 +27,21 @@ container 名称/images：
 
 参考链接：https://kubernetes.io/zh-cn/docs/concepts/workloads/pods/
 
-#### 1. 创建pod yaml
+#### 1. 切换集群
+
+    kubectl config use-context k8s
+
+#### 2. 创建pod yaml
 
     k run kucc8 --image=nginx --dry-run=client -o yaml > mutil-container-draft.yaml
 
-#### 2. 拷贝或者直接编辑该yaml文件，
+#### 3. 拷贝或者直接编辑该yaml文件，
 
     cp mutil-container-draft.yaml mutil-container.yaml
 
-#### 3. 编辑mutil-container.yaml
+#### 4. 编辑mutil-container.yaml
 
-#### 4. 创建
+#### 5. 创建
 
     k apply -f mutil-container.yaml
 

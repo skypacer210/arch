@@ -25,22 +25,26 @@ Node selector：disk=ssd
 
 https://kubernetes.io/zh-cn/docs/tasks/configure-pod-container/assign-pods-nodes/
 
-#### 1. 先检查一下是否有这个 pod，因为没有创建，所以需要创建。
+#### 1. 切换集群
+
+    kubectl config use-context k8s
+
+#### 2. 先检查一下是否有这个 pod，因为没有创建，所以需要创建。
 
     kubectl get pod -A|grep nginx-kusc00401
 
-#### 2. 检查一下 node 的标签，考试环境和模拟环境，都已经提前设置好 labels 了。
+#### 3. 检查一下 node 的标签，考试环境和模拟环境，都已经提前设置好 labels 了。
 
 ```
 ubuntu@kubeworker01:/Users/yangyong/arch/cka/7-pod-schedule$ kubectl get nodes --show-labels | grep 'disk=ssd'
 kubeworker01   Ready    <none>          10d   v1.29.5   beta.kubernetes.io/arch=arm64,beta.kubernetes.io/os=linux,disk=ssd,kubernetes.io/arch=arm64,kubernetes.io/hostname=kubeworker01,kubernetes.io/os=linux
 ```
 
-#### 3. 创建pod yaml
+#### 4. 创建pod yaml
 
     k run nginx-kusc00401 --image=nginx  --dry-run=client -o yaml > pod-disk-ssd-draft.yaml
 
-#### 4. 拷贝并编辑pod-disk-ssd.yaml:
+#### 5. 拷贝并编辑pod-disk-ssd.yaml:
 
     cp pod-disk-ssd-draft.yaml pod-disk-ssd.yaml
 
@@ -48,7 +52,7 @@ kubeworker01   Ready    <none>          10d   v1.29.5   beta.kubernetes.io/arch=
 
 ![](7-1.png)
 
-#### 5. 创建POD
+#### 6. 创建POD
 
     k apply -f pod-disk-ssd.yaml
 

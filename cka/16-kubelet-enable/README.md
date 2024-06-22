@@ -30,18 +30,26 @@ Task
 
 参考链接：https://kubernetes.io/zh-cn/docs/concepts/workloads/controllers/deployment/
 
-#### 1. 启动 kubelet 服务，
+#### 1. 登录node2
+
+    ssh node02
+
+#### 2. 切换为root
+
+    sudo -i
+
+#### 3. 启动 kubelet 服务，
 
     systemctl start kubelet
 
-#### 2. 设置为开机启动
+#### 4. 设置为开机启动
 
 ```
 ubuntu@kubeworker02:~$ sudo systemctl enable kubelet
 Created symlink /etc/systemd/system/multi-user.target.wants/kubelet.service → /lib/systemd/system/kubelet.service.
 ```
 
-#### 3. 检查
+#### 5. 检查
 
 ```
 ubuntu@kubeworker02:~$ systemctl status kubelet
@@ -70,7 +78,7 @@ Jun 20 10:27:38 kubeworker02 kubelet[290854]: E0620 10:27:38.705209  290854 pod_
 Jun 20 10:27:40 kubeworker02 kubelet[290854]: I0620 10:27:40.900721  290854 scope.go:117] "RemoveContainer" containerID="46659c95773884fb9ea3dde96b03bf866b40e13544d7d870e29e9ebe45dc60e0"
 ```
 
-#### 4. 切记，做完后，要退回到初始节点
+#### 6. 切记，做完后，要退回到初始节点
 
     exit
 

@@ -39,7 +39,11 @@ echo 是访问者，my-app 是被访问者。所以下面要创建一个 my-app 
 
 参考链接：https://kubernetes.io/zh-cn/docs/concepts/services-networking/network-policies/
 
-#### 1. 查看ns的所有标签
+#### 1. 切换集群
+
+    kubectl config use-context hk8s
+
+#### 2. 查看ns的所有标签
 
 ```
 ubuntu@kubeworker01:/Users/yangyong/arch/cka/3-networkpolicy$ k get ns echo --show-labels
@@ -47,7 +51,7 @@ NAME   STATUS   AGE   LABELS
 echo   Active   45s   kubernetes.io/metadata.name=echo
 ```
 
-#### 2. 打标签
+#### 3. 打标签
 
 注意！真实考试环境很有可能没有标签（当然默认标签也可以用，但太冗长了），我们需要自己打一个
 
@@ -59,14 +63,14 @@ NAME   STATUS   AGE    LABELS
 echo   Active   5m3s   kubernetes.io/metadata.name=echo,project=echo
 ```
 
-#### 3. 手动新建yaml，如果忘记了apiVersion，可以查询k8s资源
+#### 4. 手动新建yaml，如果忘记了apiVersion，可以查询k8s资源
 
 ```
 ubuntu@kubeworker01:/Users/yangyong/arch/cka/3-networkpolicy$ k api-resources | grep networkpolicies
 networkpolicies                   netpol       networking.k8s.io/v1              true         NetworkPolicy
 ```
 
-#### 4. 创建networkpolicy
+#### 5. 创建networkpolicy
 
 ```
 ubuntu@kubeworker01:/Users/yangyong/arch/cka/3-networkpolicy$ k apply -f networkpolicy.yaml

@@ -28,11 +28,15 @@ DaemonSet
 
 ### 答题
 
-#### 1. 创建clusterrole
+#### 1. 切换集群
+
+    kubectl config use-context k8s
+
+#### 2. 创建clusterrole
 
     k create clusterrole deployment-clusterrole --verb=create --resource=deployments,statefulsets,daemonsets
 
-#### 2. 新建Serviceaccount
+#### 3. 新建Serviceaccount
 
     k -n app-team1 create serviceaccount cicd-token
 

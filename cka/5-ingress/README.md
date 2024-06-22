@@ -28,15 +28,19 @@ Namespace: ing-internal
 
 参考链接：https://kubernetes.io/zh-cn/docs/concepts/services-networking/ingress/
 
-#### 1. 获取ingressclass
+#### 1. 切换集群
+
+    kubectl config use-context k8s
+
+#### 2. 获取ingressclass
 
     kubectl get ingressclass
 
-#### 2. 拷贝官文的 yaml 案例minimal-ingress.yaml，修改相关参数即可，
+#### 3. 拷贝官文的 yaml 案例minimal-ingress.yaml，修改相关参数即可，
 
     vim ingress.yaml
 
-#### 3. 创建ingress
+#### 4. 创建ingress
 
     kubectl apply -f ingress.yaml
 

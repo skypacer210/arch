@@ -22,7 +22,11 @@ Task
 
 参考链接：https://kubernetes.io/zh-cn/docs/concepts/workloads/controllers/deployment/
 
-#### 1. 先检查节点状态
+#### 1. 切换集群
+
+    kubectl config use-context ek8s
+
+#### 2. 先检查节点状态
 
 ```
 ubuntu@kubeworker01:/Users/yangyong/arch/cka/17-cordon-node$ k get node
@@ -32,14 +36,14 @@ kubeworker01   Ready    <none>          11d   v1.29.5
 kubeworker02   Ready    <none>          11d   v1.29.5
 ```
 
-#### 2. 暂停节点 node02 调度
+#### 3. 暂停节点 node02 调度
 
 ```
 ubuntu@kubeworker01:/Users/yangyong/arch/cka/17-cordon-node$ k cordon kubeworker02
 node/kubeworker02 cordoned
 ```
 
-#### 3. 查看Node状态
+#### 4. 查看Node状态
 
 ```
 ubuntu@kubeworker01:/Users/yangyong/arch/cka/17-cordon-node$ k get node
@@ -49,7 +53,7 @@ kubeworker01   Ready                      <none>          11d   v1.29.5
 kubeworker02   Ready,SchedulingDisabled   <none>          11d   v1.29.5
 ```
 
-#### 4. 驱逐节点 node02（因为 daemonsets 是无法驱逐的，所以要忽略它）
+#### 5. 驱逐节点 node02（因为 daemonsets 是无法驱逐的，所以要忽略它）
 
 ```
 ubuntu@kubeworker01:/Users/yangyong/arch/cka/17-cordon-node$ kubectl drain kubeworker02 --ignore-daemonsets

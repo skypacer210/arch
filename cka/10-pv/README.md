@@ -29,11 +29,15 @@ volume 类型为 hostPath，位于 /srv/app-config
 
 最好是熟记PV yaml
 
-#### 1. 基于示例创建pv.yaml, 编辑
+#### 1. 切换集群
+
+    kubectl config use-context hk8s
+
+#### 2. 基于示例创建pv.yaml, 编辑
 
     vim pv.yaml
 
-#### 2. 创建PV
+#### 3. 创建PV
 
 ```
 ubuntu@kubeworker01:/Users/yangyong/arch/cka/10-pv$ k apply -f pv.yaml

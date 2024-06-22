@@ -45,33 +45,33 @@ Task
 
 具体流程:
 
-#### 1. 导出这个 pod 的 yaml 文件
+#### 1. 切换集群
+
+    kubectl config use-context k8s
+
+#### 2. 导出这个 pod 的 yaml 文件
 
     kubectl get pod 11-factor-app -o yaml > varlog.yaml
 
-#### 2. 备份 yaml 文件，防止改错了，回退。
+#### 3. 备份 yaml 文件，防止改错了，回退。
 
     cp varlog.yaml varlog-bak.yaml
 
-#### 3. 修改 varlog.yaml 文件
+#### 4. 修改 varlog.yaml 文件
 
     vim varlog.yaml
 
-#### 4. 删除原先的 pod，大约需要等 2 分钟，中途不要 CTRL+C 终止命令。
+#### 5. 删除原先的 pod，大约需要等 2 分钟，中途不要 CTRL+C 终止命令。
 
     kubectl delete pod 11-factor-app
 
-#### 5. 检查一下是否删除了
+#### 6. 检查一下是否删除了
 
     kubectl get pod 11-factor-app
 
-#### 6. 新建这个 pod
+#### 7. 新建这个 pod
 
     kubectl apply -f varlog.yaml
-
-```
-code
-```
 
 ### 验证
 
@@ -89,7 +89,7 @@ Thu Jun 20 00:19:54 UTC 2024 INFO 344
 Thu Jun 20 00:19:55 UTC 2024 INFO 345
 ```
 
-法2： 进入sidecar容器，看日志是否已经写入
+法3： 进入sidecar容器，看日志是否已经写入
 
 ```
 ubuntu@kubeworker01:/Users/yangyong/arch/cka/13-sidecar$ k exec -it 11-factor-app -c sidecar -- /bin/sh
