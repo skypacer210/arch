@@ -32,7 +32,7 @@ https://kubernetes.io/zh-cn/docs/tasks/configure-pod-container/assign-pods-nodes
 #### 2. 检查一下 node 的标签，考试环境和模拟环境，都已经提前设置好 labels 了。
 
 ```
-ubuntu@kubeworker01:/Users/yangyong/project/cka/7-pod-schedule$ kubectl get nodes --show-labels | grep 'disk=ssd'
+ubuntu@kubeworker01:/Users/yangyong/arch/cka/7-pod-schedule$ kubectl get nodes --show-labels | grep 'disk=ssd'
 kubeworker01   Ready    <none>          10d   v1.29.5   beta.kubernetes.io/arch=arm64,beta.kubernetes.io/os=linux,disk=ssd,kubernetes.io/arch=arm64,kubernetes.io/hostname=kubeworker01,kubernetes.io/os=linux
 ```
 
@@ -57,7 +57,7 @@ kubeworker01   Ready    <none>          10d   v1.29.5   beta.kubernetes.io/arch=
 检查
 
 ```
-ubuntu@kubeworker01:/Users/yangyong/project/cka/7-pod-schedule$ k get pod nginx-kusc00401
+ubuntu@kubeworker01:/Users/yangyong/arch/cka/7-pod-schedule$ k get pod nginx-kusc00401
 NAME              READY   STATUS    RESTARTS   AGE
 nginx-kusc00401   1/1     Running   0          114s
 ```

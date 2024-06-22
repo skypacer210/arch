@@ -25,7 +25,7 @@ Task
 #### 1. 先检查节点状态
 
 ```
-ubuntu@kubeworker01:/Users/yangyong/project/cka/17-cordon-node$ k get node
+ubuntu@kubeworker01:/Users/yangyong/arch/cka/17-cordon-node$ k get node
 NAME           STATUS   ROLES           AGE   VERSION
 kubemaster     Ready    control-plane   11d   v1.29.5
 kubeworker01   Ready    <none>          11d   v1.29.5
@@ -35,14 +35,14 @@ kubeworker02   Ready    <none>          11d   v1.29.5
 #### 2. 暂停节点 node02 调度
 
 ```
-ubuntu@kubeworker01:/Users/yangyong/project/cka/17-cordon-node$ k cordon kubeworker02
+ubuntu@kubeworker01:/Users/yangyong/arch/cka/17-cordon-node$ k cordon kubeworker02
 node/kubeworker02 cordoned
 ```
 
 #### 3. 查看Node状态
 
 ```
-ubuntu@kubeworker01:/Users/yangyong/project/cka/17-cordon-node$ k get node
+ubuntu@kubeworker01:/Users/yangyong/arch/cka/17-cordon-node$ k get node
 NAME           STATUS                     ROLES           AGE   VERSION
 kubemaster     Ready                      control-plane   11d   v1.29.5
 kubeworker01   Ready                      <none>          11d   v1.29.5
@@ -52,7 +52,7 @@ kubeworker02   Ready,SchedulingDisabled   <none>          11d   v1.29.5
 #### 4. 驱逐节点 node02（因为 daemonsets 是无法驱逐的，所以要忽略它）
 
 ```
-ubuntu@kubeworker01:/Users/yangyong/project/cka/17-cordon-node$ kubectl drain kubeworker02 --ignore-daemonsets
+ubuntu@kubeworker01:/Users/yangyong/arch/cka/17-cordon-node$ kubectl drain kubeworker02 --ignore-daemonsets
 node/kubeworker02 already cordoned
 error: unable to drain node "kubeworker02" due to error:[cannot delete Pods with local storage (use --delete-emptydir-data to override): kubernetes-dashboard/dashboard-metrics-scraper-5657497c4c-bj6kp, cannot delete Pods declare no controller (use --force to override): default/kucc8, default/multi-container-pod, default/test-nginx], continuing command...
 There are pending nodes to be drained:
@@ -64,7 +64,7 @@ cannot delete Pods declare no controller (use --force to override): default/kucc
 注意，如果执行上面驱逐命令，有下图这样的报错，无法驱逐，则需要加上 --delete-emptydir-data --force 参数
 
 ```
-ubuntu@kubeworker01:/Users/yangyong/project/cka/17-cordon-node$ kubectl drain kubeworker02 --ignore-daemonsets --delete-emptydir-data --force
+ubuntu@kubeworker01:/Users/yangyong/arch/cka/17-cordon-node$ kubectl drain kubeworker02 --ignore-daemonsets --delete-emptydir-data --force
 node/kubeworker02 already cordoned
 Warning: deleting Pods that declare no controller: default/kucc8, default/multi-container-pod, default/test-nginx; ignoring DaemonSet-managed Pods: kube-system/kube-proxy-snc4h, kube-system/weave-net-lcvww
 evicting pod default/multi-container-pod

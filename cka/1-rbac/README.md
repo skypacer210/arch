@@ -36,7 +36,7 @@ DaemonSet
 
     k -n app-team1 create serviceaccount cicd-token
 
-#### 4. 创建broleinding
+#### 4. 创建rolebinding
 
     k -n app-team1 create rolebinding cicd-token-rolebinding --clusterrole=deployment-clusterrole --serviceaccount=app-team1:cicd-token
 

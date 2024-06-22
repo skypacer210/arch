@@ -46,7 +46,7 @@ container 名称/images：
 确保 pod 是 running 的
 
 ```
-ubuntu@kubeworker01:/Users/yangyong/project/cka/8-node-count$ k get pod kucc8
+ubuntu@kubeworker01:/Users/yangyong/arch/cka/8-node-count$ k get pod kucc8
 NAME    READY   STATUS    RESTARTS   AGE
 kucc8   2/2     Running   0          4m2s
 ```

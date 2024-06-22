@@ -82,7 +82,7 @@ code
 法2：直接执行容器中命令
 
 ```
-ubuntu@kubeworker01:/Users/yangyong/project/cka/13-sidecar$ kubectl exec 11-factor-app -c sidecar -- tail -f /var/log/11-factor-app.log
+ubuntu@kubeworker01:/Users/yangyong/arch/cka/13-sidecar$ kubectl exec 11-factor-app -c sidecar -- tail -f /var/log/11-factor-app.log
 Thu Jun 20 00:19:52 UTC 2024 INFO 342
 Thu Jun 20 00:19:53 UTC 2024 INFO 343
 Thu Jun 20 00:19:54 UTC 2024 INFO 344
@@ -92,7 +92,7 @@ Thu Jun 20 00:19:55 UTC 2024 INFO 345
 法2： 进入sidecar容器，看日志是否已经写入
 
 ```
-ubuntu@kubeworker01:/Users/yangyong/project/cka/13-sidecar$ k exec -it 11-factor-app -c sidecar -- /bin/sh
+ubuntu@kubeworker01:/Users/yangyong/arch/cka/13-sidecar$ k exec -it 11-factor-app -c sidecar -- /bin/sh
 / # tail -f /var/log/11-factor-app.log
 Wed Jun 19 23:45:43 UTC 2024 INFO 4029
 Wed Jun 19 23:45:44 UTC 2024 INFO 4030

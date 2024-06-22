@@ -19,7 +19,7 @@
 #### 1. 查询当前部署的副本数：
 
 ```
-ubuntu@kubeworker01:/Users/yangyong/project/cka/2-replicas$ k get deployments
+ubuntu@kubeworker01:/Users/yangyong/arch/cka/2-replicas$ k get deployments
 NAME           READY   UP-TO-DATE   AVAILABLE   AGE
 front-end      3/3     3            3           8d
 presentation   1/1     1            1           2m21s
@@ -28,7 +28,7 @@ presentation   1/1     1            1           2m21s
 #### 2. 执行扩容
 
 ```
-ubuntu@kubeworker01:/Users/yangyong/project/cka/2-replicas$ k scale deployment presentation --replicas=4
+ubuntu@kubeworker01:/Users/yangyong/arch/cka/2-replicas$ k scale deployment presentation --replicas=4
 deployment.apps/presentation scaled
 ```
 
@@ -37,7 +37,7 @@ deployment.apps/presentation scaled
 显示4/4，说明有4个POD。
 
 ```
-ubuntu@kubeworker01:/Users/yangyong/project/cka/2-replicas$ k get pod -l app=presentation
+ubuntu@kubeworker01:/Users/yangyong/arch/cka/2-replicas$ k get pod -l app=presentation
 NAME                           READY   STATUS    RESTARTS   AGE
 presentation-6f57ccbc7-6mtwc   1/1     Running   0          3h25m
 presentation-6f57ccbc7-lznzs   1/1     Running   0          4m39s

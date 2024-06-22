@@ -44,14 +44,14 @@ Image：nginx:1.16
 #### 3. 创建PVC
 
 ```
-ubuntu@kubeworker01:/Users/yangyong/project/cka/11-pvc$ k apply -f pvc.yaml
+ubuntu@kubeworker01:/Users/yangyong/arch/cka/11-pvc$ k apply -f pvc.yaml
 persistentvolumeclaim/pv-volume created
 ```
 
 #### 4. 查看PVC，确保status为bound
 
 ```
-ubuntu@kubeworker01:/Users/yangyong/project/cka/11-pvc$ k get pvc
+ubuntu@kubeworker01:/Users/yangyong/arch/cka/11-pvc$ k get pvc
 NAME        STATUS   VOLUME   CAPACITY   ACCESS MODES   STORAGECLASS      VOLUMEATTRIBUTESCLASS   AGE
 pv-volume   Bound    pv01     1Gi        RWO            csi-hostpath-sc   <unset>                 40s
 ```
@@ -69,7 +69,7 @@ pv-volume   Bound    pv01     1Gi        RWO            csi-hostpath-sc   <unset
 #### 8. 查看Pod
 
 ```
-ubuntu@kubeworker01:/Users/yangyong/project/cka/11-pvc$ k get pod web-server
+ubuntu@kubeworker01:/Users/yangyong/arch/cka/11-pvc$ k get pod web-server
 NAME         READY   STATUS    RESTARTS   AGE
 web-server   1/1     Running   0          10s
 ```

@@ -27,7 +27,7 @@ Task
 #### 1. 编辑deploy，增加ports部分：
 
 ```
-ubuntu@kubeworker01:/Users/yangyong/project/cka/4-expose-service$ k edit deploy front-end
+ubuntu@kubeworker01:/Users/yangyong/arch/cka/4-expose-service$ k edit deploy front-end
 deployment.apps/front-end edited
 ```
 
@@ -41,17 +41,17 @@ deployment.apps/front-end edited
 --port 是 service 的端口号，--target-port 是 deployment 里 pod 的容器的端口号。
 
 ```
-ubuntu@kubeworker01:/Users/yangyong/project/cka/4-expose-service$ k expose deploy front-end --type=NodePort --port=80 --name=front-end-svc
+ubuntu@kubeworker01:/Users/yangyong/arch/cka/4-expose-service$ k expose deploy front-end --type=NodePort --port=80 --name=front-end-svc
 service/front-end-svc exposed
 ```
 
 ### 验证
 
 ```
-ubuntu@kubeworker01:/Users/yangyong/project/cka/4-expose-service$ k get svc front-end-svc -o wide
+ubuntu@kubeworker01:/Users/yangyong/arch/cka/4-expose-service$ k get svc front-end-svc -o wide
 NAME            TYPE       CLUSTER-IP       EXTERNAL-IP   PORT(S)        AGE     SELECTOR
 front-end-svc   NodePort   10.104.106.175   <none>        80:32280/TCP   6m52s   app=front-end
-ubuntu@kubeworker01:/Users/yangyong/project/cka/4-expose-service$ curl 10.104.106.175:80
+ubuntu@kubeworker01:/Users/yangyong/arch/cka/4-expose-service$ curl 10.104.106.175:80
 <!DOCTYPE html>
 <html>
 <head>

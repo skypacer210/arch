@@ -36,7 +36,7 @@ volume 类型为 hostPath，位于 /srv/app-config
 #### 2. 创建PV
 
 ```
-ubuntu@kubeworker01:/Users/yangyong/project/cka/10-pv$ k apply -f pv.yaml
+ubuntu@kubeworker01:/Users/yangyong/arch/cka/10-pv$ k apply -f pv.yaml
 persistentvolume/app-config created
 ```
 
@@ -45,7 +45,7 @@ persistentvolume/app-config created
 查询PV，RWX 是 ReadWriteMany，RWO 是 ReadWriteOnce。
 
 ```
-ubuntu@kubeworker01:/Users/yangyong/project/cka/10-pv$ k get pv app-config
+ubuntu@kubeworker01:/Users/yangyong/arch/cka/10-pv$ k get pv app-config
 NAME         CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS      CLAIM   STORAGECLASS   VOLUMEATTRIBUTESCLASS   REASON   AGE
 app-config   1Gi        RWX            Retain           Available           app-config     <unset>                          26s
 ```

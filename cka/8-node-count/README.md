@@ -24,7 +24,7 @@ Task
 #### 法1. 过滤出Taints为NoSchedule的Node, 这里是第一行，总共3个，那么符合题目要求的节点就是3-1=2
 
 ```
-ubuntu@kubeworker01:/Users/yangyong/project/cka/8-node-count$ kubectl describe nodes | grep -i Taints
+ubuntu@kubeworker01:/Users/yangyong/arch/cka/8-node-count$ kubectl describe nodes | grep -i Taints
 Taints:             node-role.kubernetes.io/control-plane:NoSchedule
 Taints:             <none>
 Taints:             <none>

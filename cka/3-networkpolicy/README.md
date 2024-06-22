@@ -42,7 +42,7 @@ echo 是访问者，my-app 是被访问者。所以下面要创建一个 my-app 
 #### 1. 查看ns的所有标签
 
 ```
-ubuntu@kubeworker01:/Users/yangyong/project/cka/3-networkpolicy$ k get ns echo --show-labels
+ubuntu@kubeworker01:/Users/yangyong/arch/cka/3-networkpolicy$ k get ns echo --show-labels
 NAME   STATUS   AGE   LABELS
 echo   Active   45s   kubernetes.io/metadata.name=echo
 ```
@@ -52,9 +52,9 @@ echo   Active   45s   kubernetes.io/metadata.name=echo
 注意！真实考试环境很有可能没有标签（当然默认标签也可以用，但太冗长了），我们需要自己打一个
 
 ```
-ubuntu@kubeworker01:/Users/yangyong/project/cka/3-networkpolicy$ k label ns echo project=echo
+ubuntu@kubeworker01:/Users/yangyong/arch/cka/3-networkpolicy$ k label ns echo project=echo
 namespace/echo labeled
-ubuntu@kubeworker01:/Users/yangyong/project/cka/3-networkpolicy$ k get ns echo --show-labels
+ubuntu@kubeworker01:/Users/yangyong/arch/cka/3-networkpolicy$ k get ns echo --show-labels
 NAME   STATUS   AGE    LABELS
 echo   Active   5m3s   kubernetes.io/metadata.name=echo,project=echo
 ```
@@ -62,21 +62,21 @@ echo   Active   5m3s   kubernetes.io/metadata.name=echo,project=echo
 #### 3. 手动新建yaml，如果忘记了apiVersion，可以查询k8s资源
 
 ```
-ubuntu@kubeworker01:/Users/yangyong/project/cka/3-networkpolicy$ k api-resources | grep networkpolicies
+ubuntu@kubeworker01:/Users/yangyong/arch/cka/3-networkpolicy$ k api-resources | grep networkpolicies
 networkpolicies                   netpol       networking.k8s.io/v1              true         NetworkPolicy
 ```
 
 #### 4. 创建networkpolicy
 
 ```
-ubuntu@kubeworker01:/Users/yangyong/project/cka/3-networkpolicy$ k apply -f networkpolicy.yaml
+ubuntu@kubeworker01:/Users/yangyong/arch/cka/3-networkpolicy$ k apply -f networkpolicy.yaml
 networkpolicy.networking.k8s.io/allow-port-from-namespace created
 ```
 
 ### 验证
 
 ```
-ubuntu@kubeworker01:/Users/yangyong/project/cka/3-networkpolicy$ k describe -n my-app networkpolicy
+ubuntu@kubeworker01:/Users/yangyong/arch/cka/3-networkpolicy$ k describe -n my-app networkpolicy
 Name:         allow-port-from-namespace
 Namespace:    my-app
 Created on:   2024-06-18 23:28:09 +0800 CST
