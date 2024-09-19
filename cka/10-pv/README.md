@@ -17,7 +17,7 @@ volume 类型为 hostPath，位于 /srv/app-config
 
     bash ./env_setup.sh
 
-### 答题
+### 解析
 
 考点：hostPath 类型的 pv
 
@@ -28,6 +28,8 @@ volume 类型为 hostPath，位于 /srv/app-config
 依次点击 Tasks → Configure Pods and Containers → Configure a Pod to Use a PersistentVolume for Storage
 
 最好是熟记PV yaml
+
+### 答题
 
 #### 1. 切换集群
 
