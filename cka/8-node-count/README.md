@@ -13,13 +13,13 @@ Task
 
 考试时候无需，直接按照题目要求切换集群即可！！！
 
-### 答题
-
 考点：检查节点角色标签，状态属性，污点属性的使用
 
 参考链接：https://kubernetes.io/zh-cn/docs/concepts/workloads/controllers/deployment/
 
 题目要求，不包括被打上 Taint：NoSchedule 的就绪节点，所以要排除 NoSchedule 的。
+
+### 答题
 
 #### 1. 切换集群
 
