@@ -27,7 +27,7 @@ Task
 
     bash ./env_setup.sh
 
-### 答题
+### 解析
 
 考点：将现有的 deploy 暴露成 nodeport 的 service。
 
@@ -37,13 +37,14 @@ Task
 
 参考链接：https://kubernetes.io/zh-cn/docs/concepts/cluster-administration/logging/
 
-这道题的大体流程为：
-1、通过 kubectl get pod -o yaml 的方法备份原始 pod 信息，删除旧的 pod 11-factor-app
-2、复制一份新 yaml 文件，添加 一个名称为 sidecar 的容器
-3、挂载 emptyDir 的卷，确保两个容器都挂载了 /var/log 目录
-4、创建含有 sidecar 的 pod，并通过 kubectl logs 验证
+这道题的大体流程为：	
 
-具体流程:
+1. 通过 kubectl get pod -o yaml 的方法备份原始 pod 信息，删除旧的 pod 11-factor-ap
+2. 复制一份新 yaml 文件，添加 一个名称为 sidecar 的容器
+3. 挂载 emptyDir 的卷，确保两个容器都挂载了 /var/log 目录
+4. 创建含有 sidecar 的 pod，并通过 kubectl logs 验证
+
+### 答题
 
 #### 1. 切换集群
 
