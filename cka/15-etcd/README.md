@@ -6,14 +6,13 @@
 
 Task
 
-您必须从 master01 主机执行所需的 etcdctl 命令。
-首先，为运行在 https://127.0.0.1:2379 上的现有 etcd 实例创建快照并将快照保存到 /var/lib/backup/etcd-snapshot.db         
-提供了以下 TLS 证书和密钥，以通过 etcdctl 连接到服务器。     
-CA 证书: /opt/KUIN00601/ca.crt        
-客户端证书: /opt/KUIN00601/etcd-client.crt       
-客户端密钥: /opt/KUIN00601/etcd-client.key       
-为给定实例创建快照预计能在几秒钟内完成。 如果该操作似乎挂起，则命令可能有问题。用 CTRL + C 来取消操作，然后重试。      
-然后通过位于/data/backup/etcd-snapshot-previous.db 的先前备份的快照进行还原。
+您必须从 master01 主机执行所需的 etcdctl 命令。	
+1. 首先，为运行在 https://127.0.0.1:2379 上的现有 etcd 实例创建快照并将快照保存到 /var/lib/backup/etcd-snapshot.db。提供了以下 TLS 证书和密钥，以通过 etcdctl 连接到服务器。     
+	CA 证书: /opt/KUIN00601/ca.crt        
+	客户端证书: /opt/KUIN00601/etcd-client.crt       
+	客户端密钥: /opt/KUIN00601/etcd-client.key       
+2. 为给定实例创建快照预计能在几秒钟内完成。如果该操作似乎挂起，则命令可能有问题。用 CTRL + C 来取消操作，然后重试。     	
+3. 然后通过位于/data/backup/etcd-snapshot-previous.db 的先前备份的快照进行还原。
 
 ### 准备环境
 
@@ -23,12 +22,15 @@ CA 证书: /opt/KUIN00601/ca.crt
 
     bash ./env_setup.sh
 
-### 答题
+### 解析
 
 考点：etcd 的备份和还原命令
 
 没必要参考官网，建议多练习，背过命令就行。
 记不清的，可以使用 etcdctl -h 来帮助，更方便。
+
+### 答题
+
 
 #### 1. 考试时务必执行，切换集群。模拟环境中不需要执行。
 
@@ -93,7 +95,8 @@ member
 
     vim /etc/kubernetes/manifests/etcd.yaml
 
-![](15-1.png)
+<div align=center> <img src="15-1.png" width = 35%></div>
+
 
 #### 11. 将临时目录的文件，移动回/etc/kubernetes/manifests/目录里
 
