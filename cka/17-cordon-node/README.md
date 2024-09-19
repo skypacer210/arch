@@ -16,11 +16,13 @@ Task
 
     bash ./env_setup.sh
 
-### 答题
+### 解析
 
 考点：cordon 和 drain 命令的使用，先标记不可调度，再驱逐。
 
 参考链接：https://kubernetes.io/zh-cn/docs/concepts/workloads/controllers/deployment/
+
+### 答题
 
 #### 1. 切换集群
 
@@ -100,10 +102,11 @@ node/kubeworker02 drained
 ```
 
 截图如下：
-![](17-1.png)
+
+<div align=center> <img src="17-1.png" width = 85%></div>
 
 ### 验证
 
 无需验证。在测试环境需要恢复Node可调度
 
-![](17-2.png)
+<div align=center> <img src="17-2.png" width = 85%></div>
