@@ -10,8 +10,8 @@ Task
 名称：kucc8        
 app containers: 2       
 container 名称/images：        
-⚫ nginx     
-⚫ memcached
+- nginx     
+- memcached
 
 ### 准备环境
 
@@ -21,11 +21,16 @@ container 名称/images：
 
     bash ./env_setup.sh
 
-### 答题
+
+### 解析
 
 考点：pod 概念
 
 参考链接：https://kubernetes.io/zh-cn/docs/concepts/workloads/pods/
+
+
+### 答题
+
 
 #### 1. 切换集群
 
