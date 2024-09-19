@@ -37,7 +37,7 @@ deployment.apps/front-end edited
 
 注意修改部分如下图所示：
 
-![](4-1.png)
+![](4-1.png?30)
 
 #### 3. 暴露对应端口
 
