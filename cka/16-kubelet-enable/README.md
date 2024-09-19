@@ -24,11 +24,13 @@ Task
 
     bash ./env_setup.sh
 
-### 答题
+### 解析
 
 考点：将现有的 deploy 暴露成 nodeport 的 service。
 
 参考链接：https://kubernetes.io/zh-cn/docs/concepts/workloads/controllers/deployment/
+
+### 答题
 
 #### 1. 登录node2
 
@@ -38,7 +40,7 @@ Task
 
     sudo -i
 
-#### 3. 启动 kubelet 服务，
+#### 3. 启动 kubelet 服务
 
     systemctl start kubelet
 
