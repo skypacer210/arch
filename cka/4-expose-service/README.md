@@ -37,7 +37,7 @@ deployment.apps/front-end edited
 
 注意修改部分如下图所示：
 
-![](4-1.png)
+<div align=center> <img src="4-1.png" width = 35%></div>
 
 #### 3. 暴露对应端口
 

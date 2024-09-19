@@ -22,11 +22,12 @@ Namespace: ing-internal
 
     bash ./env_setup.sh
 
-### 答题
-
 考点：Ingress 的创建
 
 参考链接：https://kubernetes.io/zh-cn/docs/concepts/services-networking/ingress/
+
+### 答题
+
 
 #### 1. 切换集群
 

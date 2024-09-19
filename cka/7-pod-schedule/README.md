@@ -19,11 +19,11 @@ Node selector：disk=ssd
 
     bash ./env_setup.sh
 
-### 答题
-
 考点：nodeSelect 属性的使用
 
 https://kubernetes.io/zh-cn/docs/tasks/configure-pod-container/assign-pods-nodes/
+
+### 答题
 
 #### 1. 切换集群
 
@@ -50,7 +50,7 @@ kubeworker01   Ready    <none>          10d   v1.29.5   beta.kubernetes.io/arch=
 
 注意修改部分如下图所示：
 
-![](7-1.png)
+<div align=center> <img src="7-1.png" width = 35%></div>
 
 #### 6. 创建POD
 
